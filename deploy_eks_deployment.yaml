@@ -2,17 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    app: deploy_eks
-  name: deploy_eks
+    app: deploy-eks
+  name: deploy-eks
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: deploy_eks
+      app: deploy-eks
   template:
     metadata:
       labels:
-        app: deploy_eks
+        app: deploy-eks
     spec:
       containers:
       - name: my-deploy-eks
@@ -28,9 +28,9 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: deploy_eks
-    k8s-app: deploy_eks
-  name: deploy_eks
+    app: deploy-eks
+    k8s-app: deploy-eks
+  name: deploy-eks
 spec:
   ports:
   - name: http
@@ -39,4 +39,4 @@ spec:
     targetPort: 8085
   type: LoadBalancer
   selector:
-    app: deploy_eks
+    app: deploy-eks
